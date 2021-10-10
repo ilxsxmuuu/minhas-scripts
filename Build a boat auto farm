@@ -1,0 +1,70 @@
+local library = loadstring(game:HttpGet(('https://raw.githubusercontent.com/AikaV3rm/UiLib/master/Lib.lua')))()
+
+local w = library:CreateWindow("Build a boat") -- Creates the window
+
+local b = w:CreateFolder("Auto farm") -- Creates the folder(U will put here your buttons,etc)
+
+getgenv().AutoFarm = false
+
+b:Toggle("Auto farm",function(bool)
+    getgenv().AutoFarm = bool
+    if bool then
+        spawn(function()
+            while getgenv().AutoFarm == true do
+                workspace.Gravity = 0
+                print("Gravidade 0")
+                local plr = game.Players.LocalPlayer.Character.HumanoidRootPart
+                local ts = game:GetService("TweenService")
+                plr.CFrame = CFrame.new(-52, 61, 1331)
+                print("Teleport 1")
+                wait(2)
+                game.StarterGui:SetCore("SendNotification", {
+                    Title = "Auto farm";
+                    Text = "Iniciado";
+                    Duration = 5;
+                })
+            print("Notificacao")
+                ts:Create(plr, TweenInfo.new(20, Enum.EasingStyle.Linear), {CFrame = CFrame.new(-52, 61, 8341)}):Play()
+                print("Tween service 1")
+                wait()
+                print("Esperando 20 segundos")
+                wait(20)
+                workspace.Gravity = 196.2
+                print("Gravidade 196")
+                plr.CFrame = CFrame.new(-55, -360, 9489)
+                print("Teleport 1")
+                wait(1)
+                plr.CFrame = CFrame.new(-55, -360, 9489)
+                print("Teleport 2")
+                wait(1)
+                plr.CFrame = CFrame.new(-55, -360, 9489)
+                print("Teleport 3")
+                wait(1)
+                plr.CFrame = CFrame.new(-55, -360, 9489)
+                print("Teleport 4")
+                wait(1)
+                plr.CFrame = CFrame.new(-55, -360, 9489)
+                print("Teleport 5")
+                wait(1)
+                plr.CFrame = CFrame.new(-55, -360, 9489)
+                print("Teleport 6")
+                wait(1)
+                plr.CFrame = CFrame.new(-55, -360, 9489)
+                print("Teleport 7")
+                wait(1)
+                plr.CFrame = CFrame.new(-55, -360, 9489)
+                print("Teleport 8")
+                wait(1)
+                plr.CFrame = CFrame.new(-55, -360, 9489)
+                print("Teleport 9")
+                wait(1)
+                plr.CFrame = CFrame.new(-55, -360, 9489)
+                print("Teleport 10")
+                wait()
+                print("Esperando 11 segundos")
+                wait(11)
+                
+            end
+        end)
+    end
+end)
