@@ -1,0 +1,71 @@
+local library = {}
+
+function library:CriarJanela(name)
+
+local Design = Instance.new("ScreenGui")
+local Top = Instance.new("Frame")
+local Title = Instance.new("TextLabel")
+local Container = Instance.new("Frame")
+local UIGridLayout = Instance.new("UIGridLayout")
+
+Design.Name = "Design"
+Design.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+Design.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+Top.Name = "Top"
+Top.Parent = Design
+Top.BackgroundColor3 = Color3.fromRGB(15, 15, 15)
+Top.BorderSizePixel = 0
+Top.Position = UDim2.new(0.0671140924, 0, 0.114888631, 0)
+Top.Size = UDim2.new(0, 599, 0, 34)
+Top.Active = true
+Top.Draggable = true
+
+Title.Name = "Title"
+Title.Parent = Top
+Title.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Title.BackgroundTransparency = 1.000
+Title.BorderSizePixel = 0
+Title.Position = UDim2.new(0.333889812, 0, 0, 0)
+Title.Size = UDim2.new(0, 198, 0, 34)
+Title.Font = Enum.Font.SourceSans
+Title.TextColor3 = Color3.fromRGB(255, 0, 0)
+Title.TextSize = 23.000
+Title.TextWrapped = true
+Title.Text = name
+
+Container.Name = "Container"
+Container.Parent = Top
+Container.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+Container.BorderSizePixel = 0
+Container.Position = UDim2.new(0, 0, 1, 0)
+Container.Size = UDim2.new(0, 599, 0, 261)
+
+UIGridLayout.Parent = Container
+UIGridLayout.SortOrder = Enum.SortOrder.LayoutOrder
+UIGridLayout.CellSize = UDim2.new(0, 196, 0, 40)
+
+local library2 = {}
+
+function library2:CriarBotao(text, callback)
+local callback = callback or function() end
+local TextButton = Instance.new("TextButton")
+
+TextButton.Parent = Container
+TextButton.BackgroundColor3 = Color3.fromRGB(34, 34, 34)
+TextButton.BorderSizePixel = 0
+TextButton.Size = UDim2.new(0, 200, 0, 31)
+TextButton.Font = Enum.Font.SourceSans
+TextButton.TextColor3 = Color3.fromRGB(240, 240, 240)
+TextButton.TextSize = 14.000
+TextButton.Name = name
+TextButton.Text = text
+
+TextButton.MouseButton1Click:Connect(function()
+    pcall(callback)
+end)
+end
+return library2
+end
+
+
