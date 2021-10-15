@@ -1,0 +1,10 @@
+if _G.LoopPrint == false then print("Oi") end 
+
+if _G.LoopPrint == true then
+    spawn(function()
+        while _G.LoopPrint == true do
+            print("Oi")
+            wait()
+        end
+    end)
+end
