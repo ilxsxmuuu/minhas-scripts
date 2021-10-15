@@ -1,5 +1,3 @@
-local library = {}
-
 function library:CriarJanela(name)
 
 local Design = Instance.new("ScreenGui")
