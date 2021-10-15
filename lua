@@ -1,0 +1,62 @@
+local library = {}
+
+function library:CreateWindow(title)
+local ScreenGui = Instance.new("ScreenGui")
+local Cima = Instance.new("Frame")
+local TextLabel = Instance.new("TextLabel")
+local Baixo = Instance.new("Frame")
+local UIGridLayout = Instance.new("UIGridLayout")
+
+ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+Cima.Name = "Cima"
+Cima.Parent = ScreenGui
+Cima.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+Cima.BorderSizePixel = 0
+Cima.Position = UDim2.new(0.0940919071, 0, 0.21169591, 0)
+Cima.Size = UDim2.new(0, 485, 0, 40)
+
+TextLabel.Parent = Cima
+TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel.BackgroundTransparency = 1.000
+TextLabel.Size = UDim2.new(0, 485, 0, 40)
+TextLabel.Font = Enum.Font.SciFi
+TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel.TextScaled = true
+TextLabel.TextSize = 14.000
+TextLabel.TextWrapped = true
+TextLabel.Text = title
+
+Baixo.Name = "Baixo"
+Baixo.Parent = Cima
+Baixo.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
+Baixo.BorderSizePixel = 0
+Baixo.Position = UDim2.new(-0.000753454864, 0, 0.983479559, 0)
+Baixo.Size = UDim2.new(0, 485, 0, 203)
+
+UIGridLayout.Parent = Baixo
+UIGridLayout.SortOrder = Enum.SortOrder.LayoutOrder
+UIGridLayout.CellSize = UDim2.new(0, 158, 0, 40)
+
+local library2 = {}
+
+function library2:CreateButton(text, callback)
+    local TextButton = Instance.new("TextButton")
+
+    local callback = callback or function()end 
+    TextButton.Parent = Baixo
+    TextButton.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+    TextButton.BorderSizePixel = 0
+    TextButton.Size = UDim2.new(0, 200, 0, 50)
+    TextButton.Font = Enum.Font.SourceSans
+    TextButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+    TextButton.TextSize = 14.000   
+    -- Make call back down
+    TextButton.MouseButton1Click:Connect(function()
+        pcall(callback)
+    end) 
+end
+return library2
+end
+
