@@ -1,0 +1,10 @@
+if getgenv().LoopPrint == false then print("Oi") end 
+
+if getgenv().LoopPrint == true then
+    spawn(function()
+        while getgenv().LoopPrint == true do
+            print("Oi")
+            wait()
+        end 
+    end)
+end
