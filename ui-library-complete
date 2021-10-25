@@ -60,3 +60,4 @@ function library2:CreateButton(text, callback)
 end
 return library2
 end
+return library
